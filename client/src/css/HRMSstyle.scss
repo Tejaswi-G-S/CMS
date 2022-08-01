@@ -1,0 +1,9 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #777;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+#avatarIcon{ color: #fff; background : rgb(76, 175, 80); margin :0 auto; padding: 10px}
