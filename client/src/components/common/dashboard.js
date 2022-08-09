@@ -30,7 +30,7 @@ export const Dashboard = () => {
                         <Link to="/registerComplaint">Register Complaint</Link>
                     </Grid>
                     <Grid item xs={3}>
-                        User
+                        <Link to="/complaints">Complaints</Link>
                     </Grid>
                 </Grid>
             </nav>

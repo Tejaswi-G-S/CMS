@@ -4,42 +4,42 @@ import React, {Fragment} from 'react';
 import { RetrieveData } from '../api/apiCall';
 import { Grid, Select, MenuItem, InputLabel, FormControl} from "@mui/material";
 
-export const FetchLevels = (name, value, updateLevelTwoData, updateLevelThreeData, updatelevelFourData, updatelevelFiveData) => {
+export const FetchLevels = (name, value, updateDetail, updateLevelTwoData, updateLevelThreeData, updatelevelFourData, updatelevelFiveData) => {
     switch (name) {
         case "levelOne": 
             RetrieveData(`fetchLevelTwoDetails|${value}`, (response) => {
-                console.log(response)
                 updateLevelTwoData([])
                 updateLevelThreeData([])
                 updatelevelFourData([])
                 updatelevelFiveData([])
+                updateDetail((details) => {return {...details, levelTwo : '', levelThree:'', levelFour:'', levelFive:''}})
                 if (response.data.success === true)
                     updateLevelTwoData(response.data.result)
             })
             break;
         case "levelTwo":
             RetrieveData(`fetchLevelThreeDetails|${value}`, (response) => {
-                console.log(response)
                 updateLevelThreeData([])
                 updatelevelFourData([])
                 updatelevelFiveData([])
+                updateDetail((details) => {return {...details, levelThree:'', levelFour:'', levelFive:''}})
                 if (response.data.success === true)
                     updateLevelThreeData(response.data.result)
             })
             break;
         case "levelThree": 
             RetrieveData(`fetchLevelFourDetails|${value}`, (response) => {
-                console.log(response)
                 updatelevelFourData([])
                 updatelevelFiveData([])
+                updateDetail((details) => {return {...details, levelFour:'', levelFive:''}})
                 if (response.data.success === true)  
                     updatelevelFourData(response.data.result)
             })
             break;
         case "levelFour": 
             RetrieveData(`fetchLevelFiveDetails|${value}`, (response) => {
-                console.log(response)
                 updatelevelFiveData([])
+                updateDetail((details) => {return {...details, levelFive:''}})
                 if (response.data.success === true) 
                     updatelevelFiveData(response.data.result)
             })

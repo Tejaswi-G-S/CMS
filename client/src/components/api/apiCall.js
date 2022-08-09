@@ -7,6 +7,7 @@ export const RetrieveData = (data, callBackFunction) => {
 }
 
 export const StoreData = (data, callBackFunction) => {
+    console.log(data);
     axios.post(`/api/storeData/${data}`).then(res => {
         callBackFunction(res)
     });
